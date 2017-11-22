@@ -33,6 +33,9 @@ class StartPageHtmlTest extends \PHPUnit\Framework\TestCase
         $this->assertSame($pretty, false);
     }
 
+    /**
+     * Test a valid start page HTML document
+     */
     public function testPrettifyStartPageHtml()
     {
         $document = new StartPageHtml();
