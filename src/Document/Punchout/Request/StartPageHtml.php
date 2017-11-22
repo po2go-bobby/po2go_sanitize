@@ -10,11 +10,14 @@ use po2go\po2go_sanitize\Document;
  */
 class StartPageHtml extends Document
 {
+
+    /**
+     * @return string
+     */
     public function Prettify()
     {
-        $tidy = new \tidy;
-        $tidy->parseString($this->source, $this->htmlConfig, $this->charset);
-        $tidy->cleanRepair();
-        return $tidy;
+        $dom = new \DOMDocument;
+        $dom->loadHTML($this->source);
+        return $dom->saveHTML();
     }
 }
